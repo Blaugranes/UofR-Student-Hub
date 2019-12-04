@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+ </head>
+<body>
+    <style>
+	header
+	{
+	background-color: #ffc82e;
+	border-bottom:10px solid green;
+	}
+	body
+	{
+	margin:0px;
+	}
+        #logo
+        {
+          margin:10px;
+          height:150px;
+          width:300px;
+        }
+        .active
+        {
+            background-color: #2196F3;
+            color: white;
+        }
+        nav
+        {
+            margin-top:10px;
+            overflow: hidden;
+            background-color: #e9e9e9;
+            float:right;
+            margin-right:50px;
+            border: 1px solid #ccc;  
+        }
+        nav a:hover
+        {
+            background-color: #ddd;
+            color: black;
+        }
+        ul li
+        {
+            display:inline;
+        }
+        ul li a
+        {
+            padding: 24px 16px;
+            font-size:16px;
+            color:black;
+            text-decoration:none;
+        }
+        #search 
+        {
+            padding:7px;
+            margin-right:16px;
+            border:none;
+            font-size:17px;
+        }
+	h1
+	{
+	margin-top:75px;
+	font-family: news-gothic-std, sans-serif;
+	font-style: medium;
+	font-weight:350;
+	}
+        h2
+        {
+            margin:50px;
+        }
+        section
+        {
+            float: right;
+            width:97%;
+        }
+        section textarea
+        {
+            width: 550px;
+            height: 80px;
+            border: 2px solid black;
+            padding: 5px 10px;
+            resize: none;
+            outline: none;
+        }
+        section p
+   	{
+            position:absolute;
+            margin-left:67%;
+            width: 400px;
+            height: 300px;
+            line-height:300px;
+            border: 2px solid black;
+            text-align:center;
+        }
+        aside
+        {
+            float: right;
+            width:97%;
+        }
+        aside p
+        {
+            width: 800px;
+            height: 150px;
+            line-height:150px;
+            border: 2px solid black;
+            padding: 5px 10px;
+            text-align:center;
+        }
+    </style>
+<header>
+        <nav>
+                <ul>
+                    <li><a class = "active" href = "publicpage.html">Home</a></li>
+                    <li><a href = "departmentpage.html">Department</a></li>
+                    <li><a href = "#">Notifications</a></li>
+                    <li><a href = "#">Profile</a></li>
+                    <li><a href = "#">Contact Us</a></li>
+                    <input id = "search" type="text" placeholder="Search..">
+                </ul>
+        </nav>   
+    <table>
+        <tr><td><img id = "logo" src = "logo2.png"></td><td><h1>STUDENT HUB</h1></td></tr>            
+    </table>
+</header>
+<h2>
+    Public Timeline
+</h2>
+<section>
+        <textarea placeholder="Make your post here..."></textarea>
+        <input type="submit" value="Post"/>
+        <p>Public Events</p>
+</section>
+
+<aside>
+    <p>Your post with other people's comments</p>
+    <p>Another person's post with other people's comments</p>
+</aside>
+
+</body>
+</html>
