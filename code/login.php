@@ -22,7 +22,7 @@ if (isset($_POST["submitted"]) && $_POST["submitted"])
 
     $r = $db->query($q);
     $row = $r->fetch_assoc();
-    if($uname != $row["uname"] && $password != $row["password"])
+    if($uname != $row["userName"] && $password != $row["password"])
     {
         $validate = false;  
     }
@@ -44,17 +44,16 @@ if (isset($_POST["submitted"]) && $_POST["submitted"])
     }
     if($validate == true)
     {
-
         session_start();
-        $_SESSION["uname"] = $row["uname"];
-        header("Location: publicpage.html");
+        $_SESSION["uname"] = $row["userName"];
+        header("Location: publicpage.php");
         $db->close();
         exit();
     }
     else 
     {
         $error = "The username/password combination was incorrect. Login failed.";
-        echo $error;
+        echo "<script type='text/javascript'>alert('$error');</script>";
         $db->close();
     }
 }
@@ -65,7 +64,9 @@ if (isset($_POST["submitted"]) && $_POST["submitted"])
 <html>
     <head>
         <title>Login Page</title>
+		
         <script type="text/javascript" src="login.js"> </script>  
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
 <body>
@@ -78,41 +79,89 @@ if (isset($_POST["submitted"]) && $_POST["submitted"])
 }
 #logo
 {
-  margin-left:35px;
-  margin-top:20px;
-  height:180px;
-  width:260px;
-}
-body
-{
-    background-image: url(newbackground.jpeg);
-    background-repeat: no-repeat;
-    background-size:cover;
-    opacity:1;
-}
-#studenthub
-{
-margin-left:100px;
+background-color:white;
+  margin-left:2px;
+margin-top: 80px;
+  margin-bottom:0px;
+  height:210px;
+  width:800px;
 }
 #Login
 {
-float:right;
 background-color:white;
-width:25%;
+width:70%;
 margin:80px;
+margin-top: 300px;
 border:0px solid black;
 border-radius:5px;
-padding-left:20px;
+padding-left:50px;
 padding-bottom: 5px;
 opacity:0.9;
 }
+body
+{
+	background-image:url(image.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.right 
+{
+  right: 0;
+  opacity:0.9;
+}
+.left 
+{
+  left: 0;
+  background-image: url(loginpage.jpg);
+  background-repeat:no-repeat;
+  margin:10%;
+  opacity:0.9;
+}
+.centered 
+{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+ul 
+{
+    margin-top: 80px;
+    list-style-type: none;
+    font-size:24px;
+    font-weight:bold;
+    color:black;
+    opacity:1;
+}
+ul li
+{
+    padding-bottom: 50px;
+}
+.material-icons
+{
+    font-size:2rem;
+    padding-right: 10px;
+}
 </style>
-	<h1 id ="studenthub">Student Hub</h1>
+    <div class="split left">
+    <div class="centered">
+	
+    </div>
+    </div>
+    <div class="split right">
+        <div class="centered">
         <form id="Login" method="post" action ="login.php">
         <input type="hidden" name="submitted" value="1"/>
-                <table>
-                        <tr><td><img id = "logo" src = "logo.jpg"></td><td></td></tr>
-                </table>
+                
                 <h1>Login</h1>  
                 <table>
                 <tr><td></td><td><label id="uname_msg" class="err_msg"></label></td></tr>
@@ -124,6 +173,8 @@ opacity:0.9;
                 <input type="submit" value="Login" />
                 <p><a href = "signup.php">Make an Account</a></p>
         </form>
+        </div>
+</div>
 	<script type = "text/javascript"  src = "login-r.js" ></script>
 </body>
 

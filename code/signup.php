@@ -37,7 +37,8 @@
 	    if($r1->num_rows > 0)
 	    {
 		$validate = false;
-        }
+      	    }
+	    
         /*
 	    else
 	    {
@@ -90,7 +91,7 @@
 	    else
 	    {
             $error = "This email address already has a user. Signup failed.";
-            echo $error;
+            echo "<script type='text/javascript'>alert('$error');</script>";;
 		    $db->close();
         } 
     }   
@@ -104,6 +105,7 @@
 <html>
 <head>
         <Title> SignUp Page </Title>
+		
 <script type="text/javascript" src="validatesign.js"> </script>  
 
 
@@ -117,29 +119,25 @@
         }
         #logo
         {
-          margin-left:65px;
+          margin-left:15px;
           margin-top:20px;
           height:180px;
-          width:250px;
+          width:350px;
         }
         body
-        {
-            background-image: url(newbackground.jpeg);
+        {   
+            background-image: url(image.jpg);
             background-repeat:no-repeat;
-            background-size:100%;
+            background-size:cover;
             opacity:1;
             filter:alpha (opacity=100);
         }
-	#studenthub
-	{
-	margin-left:100px;
-	}
         #SignUp
         {
-	    float:right;
             background-color:white;
             width:28%;
-            margin:80px;
+            margin-top:70px;
+            margin-left:35%;
             border:0x solid black;
             border-radius:5px;
             padding-left:20px;
@@ -147,11 +145,11 @@
             opacity:0.9;
         }
 </style>
-<h1 id ="studenthub">Student Hub</h1>
+<section>
 <form id="SignUp" method="post" action ="signup.php">
 <input type="hidden" name="submitted" value="1"/>
     <table>
-    <tr><td><img id = "logo" src = "logo.jpg"></td><td></td></tr>
+    <tr><td><img id = "logo" src = "Untitled-1.png"></td><td></td></tr>
     </table>
      <h2>Sign Up</h2>
             <table>
@@ -177,19 +175,22 @@
             <tr><td></td><td><label id="pswdr_msg" class="err_msg"></label></td></tr>            
             <tr><td>Confirm Password: </td><td> <input type="password" id = "passwordr" name="pwdr" size="30" placeholder="********" /></td></tr>
             <tr><td></td><td><label id="dept_msg" class="err_msg"></label></td></tr>    
-            <tr><td>Select Department:</td>
+            <tr><td>Select Faculty:</td>
             <td>
                 <select name = "department" id = "department">
                     <option value = ""></option>
-                    <option value = "Engineering">Department of Engineering</option>
-                    <option value = "Computer Science">Department of Computer Science</option>
+                    <option value = "Engineering">Faculty of Engineering</option>
+                    <option value = "Computer Science">Faculty of Science</option>
                 </select>
             </td>
             </tr>
             </table>
             <input type="submit" value="Sign up" />
             <p><a href = "login.php">Already have an account?</a>
-</form><script type = "text/javascript"  src = "signup-r.js" ></script>
+           
+</form>
+</section>
+<script type = "text/javascript"  src = "signup-r.js" ></script>
 </body>
 
 
